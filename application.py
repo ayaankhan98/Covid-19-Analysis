@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 import requests
 
 app = Flask(__name__)
@@ -23,7 +23,10 @@ def api():
                 totalDeath[i["Country"]] = i['TotalDeaths']
                 totalCases[i["Country"]] = i['TotalConfirmed']
                 totalRecov[i["Country"]] = i['TotalRecovered']
-        return requests.jsonify["Last Updated":LastUpdated, 'NewDeaths':newDeath ,"NewCases":newCases, "NewRecovered":newRecov, "TotalDeaths":totalDeath, "TotalCases":totalCases, "TotalRecovered":totalRecov]
+        object = {"Last Updated": LastUpdated, 'NewDeaths': newDeath, "NewCases": newCases, "NewRecovered": newRecov,
+         "TotalDeaths": totalDeath, "TotalCases": totalCases, "TotalRecovered": totalRecov}
+
+        return jsonify(object)
 
 
 @app.route('/')

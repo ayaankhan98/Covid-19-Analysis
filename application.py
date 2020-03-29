@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template , jsonify
 import requests
 
 app = Flask(__name__)
@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/api')
 def api():
         res = requests.get('https://api.covid19api.com/summary')
-        data = dict(res.json())
+        data = res.json()
         LastUpdated = data["Date"]
         data = data['Countries']
         newDeath = {}
@@ -23,7 +23,15 @@ def api():
                 totalDeath[i["Country"]] = i['TotalDeaths']
                 totalCases[i["Country"]] = i['TotalConfirmed']
                 totalRecov[i["Country"]] = i['TotalRecovered']
-        return requests.jsonify["Last Updated":LastUpdated, 'NewDeaths':newDeath ,"NewCases":newCases, "NewRecovered":newRecov, "TotalDeaths":totalDeath, "TotalCases":totalCases, "TotalRecovered":totalRecov]
+        return jsonify({
+                "Last Updated":LastUpdated, 
+                'NewDeaths':newDeath,
+                "NewCases":newCases,
+                "NewRecovered":newRecov,
+                "TotalDeaths":totalDeath,
+                "TotalCases":totalCases,
+                "TotalRecovered":totalRecov
+        })
 
 
 @app.route('/')

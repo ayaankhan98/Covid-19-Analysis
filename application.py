@@ -26,15 +26,8 @@ def api():
         totalDeath[i["Country"]] = i['TotalDeaths']
         totalCases[i["Country"]] = i['TotalConfirmed']
         totalRecov[i["Country"]] = i['TotalRecovered']
-    return jsonify({
-        "Last Updated": LastUpdated,
-        'NewDeaths': newDeath,
-        "NewCases": newCases,
-        "NewRecovered": newRecov,
-        "TotalDeaths": totalDeath,
-        "TotalCases": totalCases,
-        "TotalRecovered": totalRecov
-    })
+   
+    return jsonify(data)
 
 
 @app.route('/')

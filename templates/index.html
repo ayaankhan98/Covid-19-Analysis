@@ -2,7 +2,10 @@
 
 {% block body %}
 <style>
-
+    text {
+        font-weight: bold;
+        font-family: sans-serif;
+    }
     .sphere {
         fill : darkblue;
     }
@@ -65,35 +68,29 @@
             </table>       
          </div>
          <div id="analysis-section" class="col-md-4">
-             <h6 class="ml-2"> Total Cases </h6>
-             <div class="m-2" style="background-color: lightblue">
+             <div class="m-2">
             <svg id="svg-total-cases">
             </svg>
                  </div>
-             <h6 class="ml-2"> Total Deaths </h6>
-             <div class="m-2" style="background-color: #ffcccb">
+             <div class="m-2" >
             <svg id="svg-total-deaths">
             </svg>
                  </div>
-             <h6 class="ml-2"> Total Recovered </h6>
-             <div class="m-2" style="background-color: lightgreen">
+             <div class="m-2">
             <svg id="svg-total-recovered">
             </svg>
                  </div>
          </div>
         <div class="col-md-4">
-            <h6 class="ml-2"> New Cases </h6>
-             <div class="m-2" style="background-color: lightblue">
+             <div class="m-2">
             <svg id="svg-new-cases">
             </svg>
              </div>
-            <h6 class="ml-2"> New Deaths </h6>
-             <div class="m-2" style="background-color: #ffcccb">
+             <div class="m-2" >
             <svg id="svg-new-deaths">
             </svg>
              </div>
-            <h6 class="ml-2"> New Recovered </h6>
-             <div class="m-2" style="background-color: lightgreen">
+             <div class="m-2" >
             <svg id="svg-new-recovered">
             </svg>
              </div>

@@ -8,12 +8,37 @@
     <div class="text-muted mx-auto" style="width: 313px;" id="sub-text">
         Last Updated : DD/MM/YY-HH:MM:SS
     </div>
-    <div id = "new-deaths-bar">
-        <svg width = "700" height = "900">
-
-        </svg>
-        <script type="module" src="{{ url_for('static', filename='index.js') }}">
-        </script>
+</div>
+<div id="section-2">
+    <div id="table-section" class="col-sm-4 mt-5 ml-2 mr-2">
+       <table class="table table-bordered" id="data-table">
+           <thead class="thead">
+               <tr style="font-size: 10px;">
+                   <th>Country</th>
+                   <th>New Confirmed</th>
+                   <th>Total Confirmed</th>
+                   <th>New Deaths</th>
+                   <th>Total Deaths</th>
+                   <th>New Recovered</th>
+                   <th>Total Recovered</th>
+               </tr>
+           </thead>
+           <tbody>
+            {% for country in data.Countries %}
+               <tr>
+                   <td id="country-name">{{ country.Country }}</td>
+                   <td id="country-new-confirmed">{{ country.NewConfirmed }}</td>
+                   <td id="country-total-confirmed">{{ country.TotalConfirmed }}</td>
+                   <td id="country-new-deaths">{{ country.NewDeaths }}</td>
+                   <td id="country-total-deaths">{{ country.TotalDeaths }}</td>
+                   <td id="country-new-recovered">{{ country.NewRecovered }}</td>
+                   <td id="country-total-recovered">{{ country.TotalRecovered }}</td>
+               </tr>
+            {% endfor %}
+           </tbody>
+       </table>       
+    </div>
+    <div id="analysis-section" class="col-md-6">
 
     </div>
 </div>

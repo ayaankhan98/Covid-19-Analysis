@@ -1,49 +1,67 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<style>
+
+    .sphere {
+        fill : darkblue;
+    }
+    .country {
+        fill : lightgreen;
+        stroke: black;
+        stroke-opacity: 0.1;   
+    }
+</style>
 <div class="container">
     <div class="mx-auto mt-5" style="width: 300px;">
-        <h2>Covid-19 Analysis</h2>
+        <h2 class="text-sm">Covid-19 Analysis</h2>
     </div>
-    <div class="text-muted mx-auto" style="width: 313px;" id="sub-text">
-        Last Updated : DD/MM/YY-HH:MM:SS
+    <div class="text-muted mx-auto" style="width: 280px;" id="sub-text">
+       <div style="font-size: 10px;"> Updated On : {{ lastUpdated }}</div>
     </div>
 </div>
+<hr/>
 <div id="section-2">
-    <div id="table-section" class="col-sm-4 mt-5 ml-2 mr-2">
-       <table class="table table-bordered table-sm" id="data-table">
-           <thead class="thead">
-               <tr style="font-size: 10px;">
-                   <th>Country</th>
-                   <th>New Confirmed</th>
-                   <th>Total Confirmed</th>
-                   <th>New Deaths</th>
-                   <th>Total Deaths</th>
-                   <th>New Recovered</th>
-                   <th>Total Recovered</th>
-               </tr>
-           </thead>
-           <tbody>
-            {% for country in data.Countries %}
-               <tr id="data-row">
-                   <td id="country-name">{{ country.Country }}</td>
-                   <td id="country-new-confirmed">{{ country.NewConfirmed }}</td>
-                   <td id="country-total-confirmed">{{ country.TotalConfirmed }}</td>
-                   <td id="country-new-deaths">{{ country.NewDeaths }}</td>
-                   <td id="country-total-deaths">{{ country.TotalDeaths }}</td>
-                   <td id="country-new-recovered">{{ country.NewRecovered }}</td>
-                   <td id="country-total-recovered">{{ country.TotalRecovered }}</td>
-               </tr>
-            {% endfor %}
-           </tbody>
-       </table>       
+    <div class="row ml-2 mr-2">
+        <div id="table-section" class="col-md-4 mt-5">
+            <table class="table table-bordered table-sm" id="data-table">
+                <thead class="thead">
+                    <tr style="font-size: 10px;">
+                        <th>Country</th>
+                        <th>New Confirmed</th>
+                        <th>Total Confirmed</th>
+                        <th>New Deaths</th>
+                        <th>Total Deaths</th>
+                        <th>New Recovered</th>
+                        <th>Total Recovered</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 {% for country in data.Countries %}
+                    <tr id="data-row">
+                        <td id="country-name">{{ country.Country }}</td>
+                        <td id="country-new-confirmed">{{ country.NewConfirmed }}</td>
+                        <td id="country-total-confirmed">{{ country.TotalConfirmed }}</td>
+                        <td id="country-new-deaths">{{ country.NewDeaths }}</td>
+                        <td id="country-total-deaths">{{ country.TotalDeaths }}</td>
+                        <td id="country-new-recovered">{{ country.NewRecovered }}</td>
+                        <td id="country-total-recovered">{{ country.TotalRecovered }}</td>
+                    </tr>
+                 {% endfor %}
+                </tbody>
+            </table>       
+         </div>
+         <div id="analysis-section" class="col-md-8">   
+             <svg width="500px" height="900px">
+             </svg>
+         </div>
     </div>
-    <div id="analysis-section" class="col-md-6">   
-        <svg width="500px" height="900px">
-            <script type="module" src="{{ url_for('static', filename='visuals.js') }}">
-                
-            </script>
-        </svg>
+    <hr/>
+    <div class="row ml-4 mr-2 mt-4 mb-5">
+        <div class="mx-auto">
+            <svg id="svg2" width="960px" height="500px">
+            </svg>
+        </div>
     </div>
 </div>
 {% endblock %}

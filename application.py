@@ -24,7 +24,7 @@ def api():
         newRecov[i["Country"]] = i['NewRecovered']
         totalDeath[i["Country"]] = i['TotalDeaths']
         totalCases[i["Country"]] = i['TotalConfirmed']
-        totalRecov[i["Country"]] = i['TotalRecovered']
+        totalRecov[i["Country"]] = i['TotalRecovered']  
    
     return jsonify(data)
 
@@ -33,7 +33,8 @@ def api():
 def index():
     res = requests.get('https://api.covid19api.com/summary')
     data = res.json()
-    return render_template('index.html',data=data)
+    lastUpdated = data["Date"]
+    return render_template('index.html',data=data,lastUpdated=lastUpdated)
 
 
 if __name__ == "__main__":

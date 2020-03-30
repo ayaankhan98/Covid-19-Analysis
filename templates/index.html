@@ -11,7 +11,7 @@
 </div>
 <div id="section-2">
     <div id="table-section" class="col-sm-4 mt-5 ml-2 mr-2">
-       <table class="table table-bordered" id="data-table">
+       <table class="table table-bordered table-sm" id="data-table">
            <thead class="thead">
                <tr style="font-size: 10px;">
                    <th>Country</th>
@@ -25,7 +25,7 @@
            </thead>
            <tbody>
             {% for country in data.Countries %}
-               <tr>
+               <tr id="data-row">
                    <td id="country-name">{{ country.Country }}</td>
                    <td id="country-new-confirmed">{{ country.NewConfirmed }}</td>
                    <td id="country-total-confirmed">{{ country.TotalConfirmed }}</td>
@@ -38,8 +38,7 @@
            </tbody>
        </table>       
     </div>
-    <div id="analysis-section" class="col-md-6">
-
+    <div id="analysis-section" class="col-md-6">   
     </div>
 </div>
 {% endblock %}

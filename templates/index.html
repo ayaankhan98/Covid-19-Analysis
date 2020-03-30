@@ -42,6 +42,8 @@
                 </thead>
                 <tbody>
                  {% for country in data.Countries %}
+                    {% if country.Country == "" %}
+                    {% else %}
                     <tr id="data-row">
                         <td id="country-name">{{ country.Country }}</td>
                         <td id="country-new-confirmed">{{ country.NewConfirmed }}</td>
@@ -51,6 +53,7 @@
                         <td id="country-new-recovered">{{ country.NewRecovered }}</td>
                         <td id="country-total-recovered">{{ country.TotalRecovered }}</td>
                     </tr>
+                    {% endif %}
                  {% endfor %}
                 </tbody>
             </table>       

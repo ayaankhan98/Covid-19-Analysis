@@ -1,6 +1,6 @@
 const svg = d3.select('#svg2')
 
-const projection = d3.geoNaturalEarth1();
+const projection = d3.geoNaturalEarth1();   
 const pathGenerator = d3.geoPath().projection(projection)
 
 const g = svg.append('g')
@@ -23,9 +23,8 @@ Promise.all([
     const worldMapData = {}
 
     apiData.Countries.forEach(d => {
-        // d.Country gives country name
         tsvData.forEach(d1 => {
-            if (d1.name === d.Country) {
+            if ((d1.name === d.Country) || (d1.name === "United States" && d.Country === "US")) {
                 worldMapData[d1.iso_n3] = `${d.Country}
                 NewConfirmed ${d.NewConfirmed}
                 Total Confirmed ${d.TotalConfirmed}
@@ -47,4 +46,3 @@ Promise.all([
         .append('title')
             .text(d => worldMapData[d.id])
 })
-

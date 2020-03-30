@@ -8,11 +8,14 @@
     <div class="text-muted mx-auto" style="width: 313px;" id="sub-text">
         Last Updated : DD/MM/YY-HH:MM:SS
     </div>
-    <div id = "new-deaths-bar">
-        <svg width = "700" height = "900">
-        </svg>
-        <script type="module" src="{{ url_for('static', filename='analysis.js') }}">
-        </script>
+</div>
+<div id="section-2">
+    <div id="table-section" class="col-md-6">
+       {% for country in data.Country %}
+       <li>{{ country }}</li>
+       {% endfor %}
+    </div>
+    <div id="analysis-section" class="col-md-6">
 
     </div>
 </div>

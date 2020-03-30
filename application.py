@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, jsonify
 import requests
 
@@ -32,7 +31,9 @@ def api():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    res = requests.get('https://api.covid19api.com/summary')
+    data = res.json()
+    return render_template('index.html',data=data)
 
 
 if __name__ == "__main__":

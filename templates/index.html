@@ -25,7 +25,7 @@
            </thead>
            <tbody>
             {% for country in data.Countries %}
-               <tr>
+               <tr id="data-row">
                    <td id="country-name">{{ country.Country }}</td>
                    <td id="country-new-confirmed">{{ country.NewConfirmed }}</td>
                    <td id="country-total-confirmed">{{ country.TotalConfirmed }}</td>

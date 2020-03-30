@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }   
     })
 
-    document.querySelectorAll('country-total-confirmed').forEach(row => {
+    document.querySelectorAll('#country-total-confirmed').forEach(row => {
         if (row.innerText > 500){
             row.className = "bg-danger"
         }

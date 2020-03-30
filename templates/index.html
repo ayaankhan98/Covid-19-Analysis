@@ -27,75 +27,98 @@
        <div style="font-size: 10px;"> Updated On : {{ lastUpdated }}</div>
     </div>
 </div>
+<div class="row mt-3">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-3">
+        <button class="btn btn-primary btn-sm" href="#all-country">All Country</button>
+        <button class="btn btn-primary btn-sm" href="#section-2">Most Infected Areas</button>
+        <button class="btn btn-primary btn-sm" href="#guide">GuideLines</button>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
 <hr/>
 <div class="row ml-4 mr-2 mt-4 mb-5">
-        <div class="mx-auto">
-            <svg id="svg2" width="960px" height="500px">
-            </svg>
-        </div>
+    <div class="mx-auto">
+        <svg id="svg2" width="960px" height="500px">
+        </svg>
     </div>
-<div id="section-2">
-    <div class="row ml-2 mr-2">
-        <div id="table-section" class="col-md-4 mt-5">
-            <table class="table table-bordered table-sm" id="data-table">
-                <thead class="thead">
-                    <tr style="font-size: 10px;">
-                        <th>Country</th>
-                        <th>New Confirmed</th>
-                        <th>Total Confirmed</th>
-                        <th>New Deaths</th>
-                        <th>Total Deaths</th>
-                        <th>New Recovered</th>
-                        <th>Total Recovered</th>
-                    </tr>
-                </thead>
-                <tbody>
-                 {% for country in data.Countries %}
-                    {% if country.Country == "" %}
-                    {% else %}
-                    <tr id="data-row">
-                        <td id="country-name">{{ country.Country }}</td>
-                        <td id="country-new-confirmed">{{ country.NewConfirmed }}</td>
-                        <td id="country-total-confirmed">{{ country.TotalConfirmed }}</td>
-                        <td id="country-new-deaths">{{ country.NewDeaths }}</td>
-                        <td id="country-total-deaths">{{ country.TotalDeaths }}</td>
-                        <td id="country-new-recovered">{{ country.NewRecovered }}</td>
-                        <td id="country-total-recovered">{{ country.TotalRecovered }}</td>
-                    </tr>
-                    {% endif %}
-                 {% endfor %}
-                </tbody>
-            </table>       
-         </div>
-         <div id="analysis-section" class="col-md-4">
-             <div class="m-2">
+</div>
+<div id="section-2" class="mx-auto">
+    <div class="row">
+        <div class="col-md-3 m-5">
             <svg id="svg-total-cases">
             </svg>
-                 </div>
-             <div class="m-2" >
+        </div>
+        <div class="col-md-3 m-5">
             <svg id="svg-total-deaths">
             </svg>
-                 </div>
-             <div class="m-2">
+        </div>
+        <div class="col-md-3 m-5">
             <svg id="svg-total-recovered">
             </svg>
-                 </div>
-         </div>
-        <div class="col-md-4">
-             <div class="m-2">
-            <svg id="svg-new-cases">
-            </svg>
-             </div>
-             <div class="m-2" >
-            <svg id="svg-new-deaths">
-            </svg>
-             </div>
-             <div class="m-2" >
-            <svg id="svg-new-recovered">
-            </svg>
-             </div>
         </div>
     </div>
-    <hr/>
+    <div class="row">
+        <div class="col-md-3 m-5">
+            <svg id="svg-new-cases">
+            </svg>
+        </div>
+        <div class="col-md-3 m-5">
+            <svg id="svg-new-deaths">
+            </svg>
+        </div>
+        <div class="col-md-3 m-5">
+            <svg id="svg-new-recovered">
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="row" id="all-country">
+    <div class="col-md-1">
+    </div>
+    <div id="table-section" class="col-md-5 mt-5">
+        <table class="table table-bordered table-sm" id="data-table">
+            <thead class="thead">
+                <tr style="font-size: 10px;">
+                    <th>Country</th>
+                    <th>New Confirmed</th>
+                    <th>Total Confirmed</th>
+                    <th>New Deaths</th>
+                    <th>Total Deaths</th>
+                    <th>New Recovered</th>
+                    <th>Total Recovered</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for country in data.Countries %}
+                {% if country.Country == "" %}
+                {% else %}
+                <tr id="data-row">
+                    <td id="country-name">{{ country.Country }}</td>
+                    <td id="country-new-confirmed">{{ country.NewConfirmed }}</td>
+                    <td id="country-total-confirmed">{{ country.TotalConfirmed }}</td>
+                    <td id="country-new-deaths">{{ country.NewDeaths }}</td>
+                    <td id="country-total-deaths">{{ country.TotalDeaths }}</td>
+                    <td id="country-new-recovered">{{ country.NewRecovered }}</td>
+                    <td id="country-total-recovered">{{ country.TotalRecovered }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>       
+    </div>
+    <div class="col-md-5 mt-5" id="guide">
+        <h5>Basic protective measures against the new coronavirus</h5>
+        <li>Wash your hands frequently</li>
+        <li>Maintain social distancing</li>
+        <li>Avoid touching eyes, nose and mouth</li>
+        <li>Practice respiratory hygiene</li>
+        <li>If you have fever, cough and difficulty breathing, seek medical care early</li>
+        <li>Stay informed and follow advice given by your healthcare provider</li>
+    </div>
+    <div class="col-md-1">
+    </div>
 </div>
 {% endblock %}

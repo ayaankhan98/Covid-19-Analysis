@@ -3,16 +3,48 @@ const svg = d3.select('#svg2')
 const projection = d3.geoNaturalEarth1();
 const pathGenerator = d3.geoPath().projection(projection)
 
-svg.append('path')
+const g = svg.append('g')
+g.append('path')
     .attr('class','sphere')
     .attr('d',pathGenerator({type: 'Sphere'}))
 
 
-d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
-    .then(data => {
-        const countries = topojson.feature(data, data.objects.countries)
-        svg.selectAll('path').data(countries.features)
+svg.call(d3.zoom().on('zoom', () => {
+    g.attr("transform", d3.event.transform);
+}));
+
+
+Promise.all([
+    d3.json('/world-map-data'),
+    d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
+    d3.tsv('https://unpkg.com/world-atlas@1.1.4/world/110m.tsv')
+]).then(([apiData,topoJSONdata,tsvData]) => {
+
+    const worldMapData = {}
+
+    apiData.Countries.forEach(d => {
+        // d.Country gives country name
+        tsvData.forEach(d1 => {
+            if (d1.name === d.Country) {
+                worldMapData[d1.iso_n3] = `${d.Country}
+                NewConfirmed ${d.NewConfirmed}
+                Total Confirmed ${d.TotalConfirmed}
+                New Deaths ${d.NewDeaths}
+                Total Deaths ${d.TotalDeaths}
+                New Recovered ${d.NewRecovered}
+                Total Recovered ${d.TotalRecovered}
+                `
+            }
+        })
+
+    })
+   
+    const countries = topojson.feature(topoJSONdata, topoJSONdata.objects.countries)
+        g.selectAll('path').data(countries.features)
             .enter().append('path')
             .attr('class','country')
             .attr('d',pathGenerator)
-    }) 
+        .append('title')
+            .text(d => worldMapData[d.id])
+})
+

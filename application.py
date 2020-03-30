@@ -37,5 +37,11 @@ def index():
     return render_template('index.html',data=data,lastUpdated=lastUpdated)
 
 
+@app.route('/world-map-data')
+def world_data():
+    res = requests.get('https://api.covid19api.com/summary')
+    data = res.json()
+    return (data)
+
 if __name__ == "__main__":
     app.run(debug=True)

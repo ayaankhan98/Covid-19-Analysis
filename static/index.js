@@ -26,12 +26,26 @@ document.addEventListener('DOMContentLoaded', () => {
             .range([0,height-margin.top-margin.bottom])
         const g = svg.append('g').
         attr('transform', `translate(${margin.left},${margin.top})`)
+        const t = d3.select('.op')
+
+
+        const mouseoverHandler = (d) =>{
+            t.transition().style('opacity', 0.8);
+            t.html(`<h4>${d.Country}</h4> -- <h5>Total Confirmed Cases = ${d.TotalConfirmed}</h5>`);
+            d3.select(this).style('background-color', 'red');
+        }
+        const mouseleaveHandler = (d) =>{
+            t.html("")
+        }
         g.selectAll('rect').data(data)
             .enter().append('rect')
                 .attr('fill', 'lightblue')
                 .attr('y',d => yScale(d.Country))
                 .attr('width',d => xScale(d.TotalConfirmed))
                 .attr('height',yScale.bandwidth())
+                .on('mouseenter', mouseoverHandler)
+                .on('mouseleave', setTimeout(mouseleaveHandler, 30))
+
         var i = yScale.bandwidth()
         const c = yScale.bandwidth()
         data.forEach(d => {

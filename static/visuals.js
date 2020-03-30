@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.attr('height', height)
         .attr('width', width)
         .attr('style', 'margin-left: 50px')
-    const margin = {top: 40, right: 0, bottom: 40, left: 100}
+    const margin = {top: 40, right: 0, bottom: 40, left: 40}
 
     var u = []
 //    const getCountry = (data,width,param) => {
@@ -33,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 //            .padding(0.1)
         const g = svg.append('g').
         attr('transform', `translate(${margin.left},${margin.top})`)
+        g.append('text')
+         .attr('transform', `translate(${(width-margin.left-margin.right-50)/2},${height-margin.top-margin.bottom+38})`)
+         .text('Total Cases');
         const mouseoverEvent = () => {
             console.log(d3.select(this))
         }
@@ -53,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         g.append('g').call(d3.axisLeft(yScale))
         g.append('g').call(d3.axisBottom(xScale))
+         .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
+         .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
 
 //        data.forEach( i => {
 //        var popover = document.querySelector(`.popover-${i.Country}`)
@@ -97,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.attr('height', height)
         .attr('width', width)
         .attr('style', 'margin-left: 50px')
-    const margin = {top: 40, right: 0, bottom: 40, left: 100}
+    const margin = {top: 40, right: 0, bottom: 40, left: 40}
 
     var u = []
 //    const getCountry = (data,width,param) => {
@@ -124,6 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
 //            .padding(0.1)
         const g = svg.append('g').
         attr('transform', `translate(${margin.left},${margin.top})`)
+        g.append('text')
+         .attr('transform', `translate(${(width-margin.left-margin.right-50)/2},${height-margin.top-margin.bottom+38})`)
+         .text('New Cases');
         const mouseoverEvent = () => {
             console.log(d3.select(this))
         }
@@ -144,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         g.append('g').call(d3.axisLeft(yScale))
         g.append('g').call(d3.axisBottom(xScale))
+         .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
 
 //        data.forEach( i => {
 //        var popover = document.querySelector(`.popover-${i.Country}`)
@@ -188,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.attr('height', height)
         .attr('width', width)
         .attr('style', 'margin-left: 50px')
-    const margin = {top: 40, right: 0, bottom: 40, left: 100}
+    const margin = {top: 40, right: 0, bottom: 40, left: 40}
 
     var u = []
 //    const getCountry = (data,width,param) => {
@@ -215,6 +224,9 @@ document.addEventListener('DOMContentLoaded', () => {
 //            .padding(0.1)
         const g = svg.append('g').
         attr('transform', `translate(${margin.left},${margin.top})`)
+        g.append('text')
+         .attr('transform', `translate(${(width-margin.left-margin.right-50)/2},${height-margin.top-margin.bottom+38})`)
+         .text('Total Deaths');
         const mouseoverEvent = () => {
             console.log(d3.select(this))
         }
@@ -235,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         g.append('g').call(d3.axisLeft(yScale))
         g.append('g').call(d3.axisBottom(xScale))
+         .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
 
 //        data.forEach( i => {
 //        var popover = document.querySelector(`.popover-${i.Country}`)
@@ -279,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.attr('height', height)
         .attr('width', width)
         .attr('style', 'margin-left: 50px')
-    const margin = {top: 40, right: 0, bottom: 40, left: 100}
+    const margin = {top: 40, right: 0, bottom: 40, left: 40}
 
     var u = []
 //    const getCountry = (data,width,param) => {
@@ -306,6 +319,9 @@ document.addEventListener('DOMContentLoaded', () => {
 //            .padding(0.1)
         const g = svg.append('g').
         attr('transform', `translate(${margin.left},${margin.top})`)
+        g.append('text')
+         .attr('transform', `translate(${(width-margin.left-margin.right-50)/2},${height-margin.top-margin.bottom+38})`)
+         .text('Total Recovered');
         const mouseoverEvent = () => {
             console.log(d3.select(this))
         }
@@ -326,6 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         g.append('g').call(d3.axisLeft(yScale))
         g.append('g').call(d3.axisBottom(xScale))
+         .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
 
 //        data.forEach( i => {
 //        var popover = document.querySelector(`.popover-${i.Country}`)
@@ -370,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.attr('height', height)
         .attr('width', width)
         .attr('style', 'margin-left: 50px')
-    const margin = {top: 40, right: 0, bottom: 40, left: 100}
+    const margin = {top: 40, right: 0, bottom: 40, left: 40}
 
     var u = []
 //    const getCountry = (data,width,param) => {
@@ -397,6 +414,10 @@ document.addEventListener('DOMContentLoaded', () => {
 //            .padding(0.1)
         const g = svg.append('g').
         attr('transform', `translate(${margin.left},${margin.top})`)
+
+        g.append('text')
+         .attr('transform', `translate(${(width-margin.left-margin.right-50)/2},${height-margin.top-margin.bottom+38})`)
+         .text('New Recovered');
         const mouseoverEvent = () => {
             console.log(d3.select(this))
         }
@@ -417,6 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         g.append('g').call(d3.axisLeft(yScale))
         g.append('g').call(d3.axisBottom(xScale))
+         .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
 
 //        data.forEach( i => {
 //        var popover = document.querySelector(`.popover-${i.Country}`)
@@ -461,7 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.attr('height', height)
         .attr('width', width)
         .attr('style', 'margin-left: 50px')
-    const margin = {top: 40, right: 0, bottom: 40, left: 100}
+    const margin = {top: 40, right: 0, bottom: 40, left: 40}
 
     var u = []
 //    const getCountry = (data,width,param) => {
@@ -486,8 +508,13 @@ document.addEventListener('DOMContentLoaded', () => {
 //            .domain(data.map(d => d.Country))
 //            .range([0,height-margin.top-margin.bottom])
 //            .padding(0.1)
-        const g = svg.append('g').
-        attr('transform', `translate(${margin.left},${margin.top})`)
+        const g = svg.append('g')
+         .attr('transform', `translate(${margin.left},${margin.top})`)
+
+        g.append('text')
+         .attr('transform', `translate(${(width-margin.left-margin.right-50)/2},${height-margin.top-margin.bottom+38})`)
+         .text('New Deaths');
+
         const mouseoverEvent = () => {
             console.log(d3.select(this))
         }
@@ -508,6 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         g.append('g').call(d3.axisLeft(yScale))
         g.append('g').call(d3.axisBottom(xScale))
+         .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
 
 //        data.forEach( i => {
 //        var popover = document.querySelector(`.popover-${i.Country}`)

@@ -9,10 +9,18 @@
         Last Updated : DD/MM/YY-HH:MM:SS
     </div>
     <div id = "new-deaths-bar">
+        <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
         <svg width = "700" height = "900">
 
         </svg>
         <script type="module" src="{{ url_for('static', filename='index.js') }}">
+        </script>
+        <script>
+            const hello = () => {
+             $('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+                }
         </script>
     </div>
 </div>

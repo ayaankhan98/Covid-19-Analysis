@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
          .text('Total Cases');
         g.selectAll('rect').data(data)
             .enter().append('rect')
-                .attr('fill', 'blue')
+                .attr('fill', '#db3958')
                 .attr('x',d => xScale(d.Country))
                 .attr('width',xScale.bandwidth())
                 .attr('height',d => yScale(maxi-d.TotalConfirmed))
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
          .text('New Cases');
         g.selectAll('rect').data(data)
             .enter().append('rect')
-                .attr('fill', 'blue')
+                .attr('fill', '#db3958')
                 .attr('x',d => xScale(d.Country))
                 .attr('width',xScale.bandwidth())
                 .attr('height',d => yScale(maxi-d.NewConfirmed))
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
          .text('Total Deaths');
         g.selectAll('rect').data(data)
             .enter().append('rect')
-                .attr('fill', 'red')
+                .attr('fill', '#bf0000')
                 .attr('x',d => xScale(d.Country))
                 .attr('width',xScale.bandwidth())
                 .attr('height',d => yScale(maxi-d.TotalDeaths))
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
          .text('New Deaths');
         g.selectAll('rect').data(data)
             .enter().append('rect')
-                .attr('fill', 'red')
+                .attr('fill', '#bf0000')
                 .attr('x',d => xScale(d.Country))
                 .attr('width',xScale.bandwidth())
                 .attr('height',d => yScale(maxi-d.NewDeaths))

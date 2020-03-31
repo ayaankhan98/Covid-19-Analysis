@@ -22,6 +22,12 @@ def index():
     TotalDeaths = 0
     TotalConfirmed = 0
     TotalRecovered = 0
+    y = ""
+    m = ""
+    d = ""
+    h = ""
+    min = ""
+    s = ""
     for i in data['Countries']:
         NewDeaths += i['NewDeaths']
         NewConfirmed += i['NewConfirmed']
@@ -30,6 +36,23 @@ def index():
         TotalConfirmed += i['TotalConfirmed']
         TotalRecovered += i['TotalRecovered']
     lastUpdated = data["Date"]
+    i = 0
+    while(i<len(lastUpdated)):
+        if i<4:
+            y += lastUpdated[i]
+        elif i>4 and i<7:
+            m += lastUpdated[i]
+        elif i>7 and i<10:
+            d += lastUpdated[i]
+        elif i>10 and i<13:
+            h += lastUpdated[i]
+        elif i>13 and i<16:
+            min += lastUpdated[i]
+        elif i>16 and i<19:
+            s += lastUpdated[i]
+        i += 1
+
+    lastUpdated = f'{y}/{m}/{d}  {h}:{min}:{s}'
     return render_template('index.html',data=data,lastUpdated=lastUpdated, newDeaths=NewDeaths, newConfirmed=NewConfirmed, newRecovered=NewRecovered, totalDeaths=TotalDeaths, totalConfirmed=TotalConfirmed, totalRecovered=TotalRecovered)
 
 

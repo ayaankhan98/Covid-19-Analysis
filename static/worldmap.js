@@ -45,4 +45,5 @@ Promise.all([
             .attr('d',pathGenerator)
         .append('title')
             .text(d => worldMapData[d.id])
+
 })

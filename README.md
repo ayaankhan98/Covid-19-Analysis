@@ -20,4 +20,7 @@ We tried to visulize the data of Covid-19.
 - For Potting Maps and Charts we used Scalable Vector Graphics (SVG) elements to give clear pictures even on Large Zooming
 - other than JavaScript we are using technologies like HTML, CSS and BootStrap to bring some more intractive and responsive nature to the webapp
 
+## Preview
+
+![picture alt](images/Screenshot (31)/ "World Map Showing Data For United States")
 

@@ -33,6 +33,7 @@ Here we tried to visulize the world data of Covid-19. Data Visulization gives an
 ## Preview
 
 ![alt text](./images/Screenshot(31).png)
+![alt text](./images/Graphs.png)
 
 
 ## Features

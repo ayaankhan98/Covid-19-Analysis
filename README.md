@@ -22,5 +22,5 @@ We tried to visulize the data of Covid-19.
 
 ## Preview
 
-![picture alt](images/Screenshot (31)/ "World Map Showing Data For United States")
+![alt text](./images/Screenshot (31).png)
 

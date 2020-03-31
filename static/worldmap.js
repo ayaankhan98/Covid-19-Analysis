@@ -48,6 +48,7 @@ Promise.all([
 })
 document.addEventListener('DOMContentLoaded', () => {
     var width = total.node().getBoundingClientRect().width
+const total = d3.select('#iop')
     var t = document.getElementById('map')
         console.log(width)
     if(t)

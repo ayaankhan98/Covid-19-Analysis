@@ -22,5 +22,5 @@ We tried to visulize the data of Covid-19.
 
 ## Preview
 
-![alt text](./images/Screenshot (31).png)
+![alt text](./images/Screenshot(31).png)
 

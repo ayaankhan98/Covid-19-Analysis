@@ -55,43 +55,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
     const render2 = data => {
+        const maxi = d3.max(data,d => d.NewConfirmed)
         const xScale = d3.scaleBand()
                 .domain(data.map(d => d.Country))
                 .range([0,width-margin.left-margin.right])
                 .padding(0.1)
         const yScale = d3.scaleLinear()
-                .domain([0, d3.max(data,d => d.NewConfirmed)])
+                .domain([maxi, 0])
                 .range([0,height-margin.top-margin.bottom])
         const g = svg2.append('g').
         attr('transform', `translate(${margin.left},${margin.top})`)
         g.append('text')
          .attr('transform', `translate(${(width-margin.left-margin.right-50)/2},${height-margin.top-margin.bottom+38})`)
          .text('New Cases');
-        const mouseoverEvent = () => {
-            console.log(d3.select(this))
-        }
-        const mouseoutEvent = () => {
-            d3.select(this).attr('fill', 'lightblue')
-        }
         g.selectAll('rect').data(data)
             .enter().append('rect')
                 .attr('fill', 'blue')
                 .attr('x',d => xScale(d.Country))
                 .attr('width',xScale.bandwidth())
-                .attr('height',d => yScale(d.NewConfirmed))
-                .on('mouseover', mouseoverEvent)
-                .on('mouseout', mouseoutEvent)
+                .attr('height',d => yScale(maxi-d.NewConfirmed))
+                .attr('transform', d => `translate(0 , ${height-margin.top-margin.bottom - yScale(maxi-d.NewConfirmed)})`)
         g.append('g').call(d3.axisLeft(yScale))
         g.append('g').call(d3.axisBottom(xScale))
          .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
     }
     const render3 = data => {
+        const maxi = d3.max(data,d => d.TotalDeaths)
         const xScale = d3.scaleBand()
                 .domain(data.map(d => d.Country))
                 .range([0,width-margin.left-margin.right])
                 .padding(0.1)
         const yScale = d3.scaleLinear()
-                .domain([0, d3.max(data,d => d.TotalDeaths)])
+                .domain([maxi, 0])
                 .range([0,height-margin.top-margin.bottom])
 //        const xScale = d3.scaleLinear()
 //            .domain([0, d3.max(data,d => d.TotalConfirmed)])
@@ -105,76 +100,50 @@ document.addEventListener('DOMContentLoaded', () => {
         g.append('text')
          .attr('transform', `translate(${(width-margin.left-margin.right-50)/2},${height-margin.top-margin.bottom+38})`)
          .text('Total Deaths');
-        const mouseoverEvent = () => {
-            console.log(d3.select(this))
-        }
-        const mouseoutEvent = () => {
-            d3.select(this).attr('fill', 'lightblue')
-        }
         g.selectAll('rect').data(data)
             .enter().append('rect')
                 .attr('fill', 'red')
                 .attr('x',d => xScale(d.Country))
                 .attr('width',xScale.bandwidth())
-                .attr('height',d => yScale(d.TotalDeaths))
-                .on('mouseover', mouseoverEvent)
-                .on('mouseout', mouseoutEvent)
-
-        // console.log(M)
-        // console.log()
-
+                .attr('height',d => yScale(maxi-d.TotalDeaths))
+                .attr('transform', d => `translate(0 , ${height-margin.top-margin.bottom - yScale(maxi-d.TotalDeaths)})`)
         g.append('g').call(d3.axisLeft(yScale))
         g.append('g').call(d3.axisBottom(xScale))
          .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
-
-//        data.forEach( i => {
-//        var popover = document.querySelector(`.popover-${i.Country}`)
-//        if(popover)
-//        {
-//            popover.addEventListener('click', () =>{
-//            console.log("Hello")
-//        })
-//        }
-//    })
     }
     const render4 = data => {
+        const maxi = d3.max(data,d => d.TotalRecovered)
         const xScale = d3.scaleBand()
                 .domain(data.map(d => d.Country))
                 .range([0,width-margin.left-margin.right])
                 .padding(0.1)
         const yScale = d3.scaleLinear()
-                .domain([0, d3.max(data,d => d.TotalRecovered)])
+                .domain([maxi, 0])
                 .range([0,height-margin.top-margin.bottom])
         const g = svg4.append('g').
         attr('transform', `translate(${margin.left},${margin.top})`)
         g.append('text')
          .attr('transform', `translate(${(width-margin.left-margin.right-50)/2},${height-margin.top-margin.bottom+38})`)
          .text('Total Recovered');
-        const mouseoverEvent = () => {
-            console.log(d3.select(this))
-        }
-        const mouseoutEvent = () => {
-            d3.select(this).attr('fill', 'lightblue')
-        }
         g.selectAll('rect').data(data)
             .enter().append('rect')
                 .attr('fill', 'green')
                 .attr('x',d => xScale(d.Country))
                 .attr('width',xScale.bandwidth())
-                .attr('height',d => yScale(d.TotalRecovered))
-                .on('mouseover', mouseoverEvent)
-                .on('mouseout', mouseoutEvent)
+                .attr('height',d => yScale(maxi-d.TotalRecovered))
+                .attr('transform', d => `translate(0 , ${height-margin.top-margin.bottom - yScale(maxi-d.TotalRecovered)})`)
         g.append('g').call(d3.axisLeft(yScale))
         g.append('g').call(d3.axisBottom(xScale))
          .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
     }
     const render5 = data => {
+        const maxi = d3.max(data,d => d.NewRecovered)
         const xScale = d3.scaleBand()
                 .domain(data.map(d => d.Country))
                 .range([0,width-margin.left-margin.right])
                 .padding(0.1)
         const yScale = d3.scaleLinear()
-                .domain([0, d3.max(data,d => d.NewRecovered)])
+                .domain([maxi, 0])
                 .range([0,height-margin.top-margin.bottom])
         const g = svg5.append('g').
         attr('transform', `translate(${margin.left},${margin.top})`)
@@ -182,77 +151,41 @@ document.addEventListener('DOMContentLoaded', () => {
         g.append('text')
          .attr('transform', `translate(${(width-margin.left-margin.right-50)/2},${height-margin.top-margin.bottom+38})`)
          .text('New Recovered');
-        const mouseoverEvent = () => {
-            console.log(d3.select(this))
-        }
-        const mouseoutEvent = () => {
-            d3.select(this).attr('fill', 'lightblue')
-        }
         g.selectAll('rect').data(data)
             .enter().append('rect')
                 .attr('fill', 'green')
                 .attr('x',d => xScale(d.Country))
                 .attr('width',xScale.bandwidth())
-                .attr('height',d => yScale(d.NewRecovered))
-                .on('mouseover', mouseoverEvent)
-                .on('mouseout', mouseoutEvent)
+                .attr('height',d => yScale(maxi-d.NewRecovered))
+                .attr('transform', d => `translate(0 , ${height-margin.top-margin.bottom - yScale(maxi-d.NewRecovered)})`)
         g.append('g').call(d3.axisLeft(yScale))
         g.append('g').call(d3.axisBottom(xScale))
          .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
     }
     const render6 = data => {
+        const maxi = d3.max(data,d => d.NewDeaths)
         const xScale = d3.scaleBand()
                 .domain(data.map(d => d.Country))
                 .range([0,width-margin.left-margin.right])
                 .padding(0.1)
         const yScale = d3.scaleLinear()
-                .domain([0, d3.max(data,d => d.NewDeaths)])
+                .domain([maxi, 0])
                 .range([0,height-margin.top-margin.bottom])
-//        const xScale = d3.scaleLinear()
-//            .domain([0, d3.max(data,d => d.TotalConfirmed)])
-//            .range([0,width-margin.left-margin.right])
-//        const yScale = d3.scaleBand()
-//            .domain(data.map(d => d.Country))
-//            .range([0,height-margin.top-margin.bottom])
-//            .padding(0.1)
         const g = svg6.append('g')
          .attr('transform', `translate(${margin.left},${margin.top})`)
-
         g.append('text')
          .attr('transform', `translate(${(width-margin.left-margin.right-50)/2},${height-margin.top-margin.bottom+38})`)
          .text('New Deaths');
-
-        const mouseoverEvent = () => {
-            console.log(d3.select(this))
-        }
-        const mouseoutEvent = () => {
-            d3.select(this).attr('fill', 'lightblue')
-        }
         g.selectAll('rect').data(data)
             .enter().append('rect')
                 .attr('fill', 'red')
                 .attr('x',d => xScale(d.Country))
                 .attr('width',xScale.bandwidth())
-                .attr('height',d => yScale(d.NewDeaths))
-                .on('mouseover', mouseoverEvent)
-                .on('mouseout', mouseoutEvent)
-
-        // console.log(M)
-        // console.log()
-
+                .attr('height',d => yScale(maxi-d.NewDeaths))
+                .attr('transform', d => `translate(0 , ${height-margin.top-margin.bottom - yScale(maxi-d.NewDeaths)})`)
         g.append('g').call(d3.axisLeft(yScale))
         g.append('g').call(d3.axisBottom(xScale))
          .attr('transform', `translate(0,${height-margin.top-margin.bottom})`)
-
-//        data.forEach( i => {
-//        var popover = document.querySelector(`.popover-${i.Country}`)
-//        if(popover)
-//        {
-//            popover.addEventListener('click', () =>{
-//            console.log("Hello")
-//        })
-//        }
-//    })
     }
     d3.json('/api')
         .then(data => {

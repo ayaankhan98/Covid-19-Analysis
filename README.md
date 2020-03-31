@@ -24,3 +24,8 @@ We tried to visulize the data of Covid-19.
 
 ![alt text](./images/Screenshot(31).png)
 
+## Features
+
+- The world map provided supports zooming and on mouse hover displays the data of the corrosponding country
+- we have provide a tabular format of data for all countries
+- Bar Charts are shown for Areas Which are Most Infected

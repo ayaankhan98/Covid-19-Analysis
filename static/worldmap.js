@@ -1,8 +1,15 @@
 const svg = d3.select('#svg2')
-
-const projection = d3.geoNaturalEarth1();   
+const aspect = 960/500
+const total = d3.select('#iop')
+const projection = d3.geoNaturalEarth1();
 const pathGenerator = d3.geoPath().projection(projection)
 
+d3.select(window)
+  .on("resize", () => {
+        var width = total.node().getBoundingClientRect().width
+//        svg.attr("width", width)
+//           .attr("height", width/aspect)
+  })
 const g = svg.append('g')
 g.append('path')
     .attr('class','sphere')

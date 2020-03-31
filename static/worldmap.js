@@ -1,15 +1,7 @@
 const svg = d3.select('#svg2')
-const aspect = 960/500
-const total = d3.select('#iop')
 const projection = d3.geoNaturalEarth1();
 const pathGenerator = d3.geoPath().projection(projection)
 
-d3.select(window)
-  .on("resize", () => {
-        var width = total.node().getBoundingClientRect().width
-//        svg.attr("width", width)
-//           .attr("height", width/aspect)
-  })
 const g = svg.append('g')
 g.append('path')
     .attr('class','sphere')
@@ -33,7 +25,7 @@ Promise.all([
         tsvData.forEach(d1 => {
             if ((d1.name === d.Country) || (d1.name === "United States" && d.Country === "US")) {
                 worldMapData[d1.iso_n3] = `${d.Country}
-                NewConfirmed ${d.NewConfirmed}
+                New Confirmed ${d.NewConfirmed}
                 Total Confirmed ${d.TotalConfirmed}
                 New Deaths ${d.NewDeaths}
                 Total Deaths ${d.TotalDeaths}
@@ -52,4 +44,19 @@ Promise.all([
             .attr('d',pathGenerator)
         .append('title')
             .text(d => worldMapData[d.id])
+})
+document.addEventListener('DOMContentLoaded', () => {
+    var width = total.node().getBoundingClientRect().width
+    var t = document.getElementById('map')
+        console.log(width)
+    if(t)
+    {
+        if (width <= 480)
+    {
+        console.log(width)
+        t.parentNode.removeChild(t)
+    }
+    }
+
+
 })

@@ -52,7 +52,7 @@ def index():
             s += lastUpdated[i]
         i += 1
 
-    lastUpdated = f'{y}/{m}/{d}  {h}:{min}:{s}'
+    lastUpdated = f'{y}/{m}/{d}  {h}:{min}:{s}                GMT + 00:00:00'
     return render_template('index.html',data=data,lastUpdated=lastUpdated, newDeaths=NewDeaths, newConfirmed=NewConfirmed, newRecovered=NewRecovered, totalDeaths=TotalDeaths, totalConfirmed=TotalConfirmed, totalRecovered=TotalRecovered)
 
 

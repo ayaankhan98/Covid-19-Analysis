@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     svg6.attr('height', height)
         .attr('width', width)
         .attr('style', 'margin-left: 50px')
-    const margin = {top: 40, right: 0, bottom: 40, left: 40}
+    const margin = {top: 40, right: 0, bottom: 40, left: 50}
     const render1 = data => {
         const maxi = d3.max(data,d => d.TotalConfirmed)
         const xScale = d3.scaleBand()

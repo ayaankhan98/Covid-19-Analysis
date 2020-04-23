@@ -24,7 +24,7 @@ Promise.all([
 
     apiData.Countries.forEach(d => {
         tsvData.forEach(d1 => {
-            if ((d1.name === d.Country) || (d1.name === "United States" && d.Country === "US")) {
+            if ((d1.name === d.Country) || (d1.name === "United States" && d.Country === "United States of America")) {
                 worldMapData[d1.iso_n3] = `${d.Country}
                 New Confirmed ${d.NewConfirmed}
                 Total Confirmed ${d.TotalConfirmed}

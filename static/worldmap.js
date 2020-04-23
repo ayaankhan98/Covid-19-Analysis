@@ -1,4 +1,5 @@
 const svg = d3.select('#svg2')
+const total = d3.select('#iop')
 const projection = d3.geoNaturalEarth1();
 const pathGenerator = d3.geoPath().projection(projection)
 

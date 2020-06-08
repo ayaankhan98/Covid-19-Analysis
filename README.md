@@ -1,4 +1,7 @@
 # Covid-19-Analysis
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/83e0cdf67dec4d45859abca2307192e8)](https://app.codacy.com/manual/ayaankhan98/Covid-19-Analysis?utm_source=github.com&utm_medium=referral&utm_content=ayaankhan98/Covid-19-Analysis&utm_campaign=Badge_Grade_Dashboard)
+
 This repository is a part of AMURoboHack 1.0
 
 Here we tried to visulize the world data of Covid-19. Data Visulization gives an easy way to understand bunch of data. We tried plotting the data over a world map so that users can eaisly get the stats for a conuntry by just hovering the mouse pointer over the country in the world map, we also provided the zooming over the world map to bring a sense of attractiveness and user friendly interface, we have also shown the covid-19 most prone areas over bar charts which answers the most frequently asked questions such as which country has maximum number of cases so far? Maximum deaths happens in which country? Which country has recoverd most of it's people?, The Bar charts also provides stats for the current day seprately such as how many people get affected by covid-19 on this particular day? how many people get recoverd on this particular day? etc, we also provided a list of approximate 265 countries which their stats.
